@@ -60,9 +60,9 @@ REDIS_PORT=6379
 
 > If you already have an application, you can move it to the `application` directory here. Else, you can adjust the shared volume file paths within the `docker-compose.yml` file.
 > 
-> If you edit the `docker-compose.yml` file, run `docker-compose down; docker-compose up` to suck in the new Volume settings.
+> If you edit the `docker-compose.yml` file, run `docker-compose down; docker-compose up -d` to suck in the new Volume settings.
 
-**3. (Optionally) Add Authh Scaffolding:**
+**3. (Optionally) Add Auth Scaffolding:**
 
 If you'd like, we can add Laravel's Auth scaffolding as well. To do that, we need to run some Artisan commands:
 
