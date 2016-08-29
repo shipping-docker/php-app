@@ -4,12 +4,12 @@
 
 ## What is this?
 
-This is an example of how you can quicklyget up and running with Docker to develop a PHP application. This is a companion to the 🐳 [Shipping Docker](https://shippingdocker.com/) video series.
+This is an example of how you can quickly get up and running with Docker to develop a PHP application. This is a companion to the 🐳 [Shipping Docker](https://shippingdocker.com/) video series.
 
 
 ## How to use
 
-**1. Get the files and spin up containers**
+### 1. Get the files and spin up containers
 
 ```bash
 # Get shipping-docker files
@@ -23,7 +23,7 @@ docker-compose up -d
 
 At this point, we've created containers and have them up and running. However, we didn't create a Laravel application to serve yet. We waited because we wanted a PHP image to get created so we can re-use it and run `composer` commands.
 
-**2. Create a new Laravel application**
+### 2. Create a new Laravel application
 
 ```bash
 # From directory "php-app"
@@ -62,7 +62,7 @@ REDIS_PORT=6379
 > 
 > If you edit the `docker-compose.yml` file, run `docker-compose down; docker-compose up -d` to suck in the new Volume settings.
 
-**3. (Optionally) Add Auth Scaffolding:**
+### 3. (Optionally) Add Auth Scaffolding:
 
 If you'd like, we can add Laravel's Auth scaffolding as well. To do that, we need to run some Artisan commands:
 
