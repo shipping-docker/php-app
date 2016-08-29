@@ -1,0 +1,32 @@
+version: '2'
+services:
+  nginx:
+    build: ./nginx
+    ports:
+     - "80:80"
+    volumes:
+     - ./application:/var/www/html
+    networks:
+     - appnet
+  php:
+    build: ./php
+    volumes:
+     - ./application:/var/www/html
+    networks:
+     - appnet
+  redis:
+    image: redis:alpine
+    networks:
+     - appnet
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+    networks:
+     - appnet
+networks:
+  appnet:
+    driver: "bridge"

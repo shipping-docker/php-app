@@ -5,3 +5,35 @@
 ## What is this?
 
 This is an example of how you can quicklyget up and running with Docker to develop a PHP application. This is a companion to the 🐳 [Shipping Docker](https://shippingdocker.com/) video series.
+
+
+## How to use
+
+```bash
+git clone git@github.com:shipping-docker/php-app.git
+cd php-app
+
+# Start the app, run containers
+# in the background
+docker-compose up -d
+
+# Scaffold authentication views/routes
+docker run -it --rm \
+    -v $(pwd)/application:/opt \
+    -w /opt \
+    --network=phpapp_appnet \
+    phpapp_php \
+    php artisan make:auth
+
+# Run migrations for auth scaffolding
+docker run -it --rm \
+    -v $(pwd)/application:/opt \
+    -w /opt \
+    --network=phpapp_appnet \
+    phpapp_php \
+    php artisan migrate
+```
+
+Then start using it!
+
+![image](https://cloud.githubusercontent.com/assets/467411/18038743/6ac84008-6d61-11e6-8aa6-30a776b59aaa.png)
