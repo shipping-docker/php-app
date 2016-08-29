@@ -13,6 +13,7 @@ RUN apt-get update \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get install -y php-fpm php-cli php-mcrypt php-gd php-mysql \
        php-pgsql php-imap php-memcached php-mbstring php-xml \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
     && mkdir /run/php \
     && apt-get remove -y --purge software-properties-common \
     && apt-get clean \
