@@ -34,6 +34,6 @@ docker run -it --rm \
     php artisan migrate
 ```
 
-Then start using it!
+Then start using it! Head to `http://localhost/register` to see your Laravel application with auth scaffolding in place.
 
 ![image](https://cloud.githubusercontent.com/assets/467411/18038743/6ac84008-6d61-11e6-8aa6-30a776b59aaa.png)
