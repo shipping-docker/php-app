@@ -9,6 +9,8 @@ This is an example of how you can quicklyget up and running with Docker to devel
 
 ## How to use
 
+**1. Get the files and spin up containers**
+
 ```bash
 # Get shipping-docker files
 git clone git@github.com:shipping-docker/php-app.git
@@ -21,7 +23,7 @@ docker-compose up -d
 
 At this point, we've created containers and have them up and running. However, we didn't create a Laravel application to serve yet. We waited because we wanted a PHP image to get created so we can re-use it and run `composer` commands.
 
-Let's see that in action:
+**2. Create a new Laravel application**
 
 ```bash
 # From directory "php-app"
@@ -56,7 +58,11 @@ REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
 
-Now we can run some `artisan` commands to get Authentication scaffolded (or really, whatever you want):
+> If you already have an application, you can move it to the `application` directory here. Else, you can adjust the shared volume file paths within the `docker-compose.yml` file.
+
+**3. (Optionally) Add Authh Scaffolding:**
+
+If you'd like, we can add Laravel's Auth scaffolding as well. To do that, we need to run some Artisan commands:
 
 ```bash
 # Scaffold authentication views/routes
