@@ -40,7 +40,7 @@ docker run -it --rm \
     composer create-project laravel/laravel application
 
 docker run -it --rm \
-    -v $(pwd):/opt \
+    -v $(pwd)/application:/opt \
     -w /opt \
     --network=phpapp_appnet \
     phpapp_php \
