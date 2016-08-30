@@ -38,6 +38,17 @@ docker run -it --rm \
     --network=phpapp_appnet \
     phpapp_php \
     composer create-project laravel/laravel application
+
+docker run -it --rm \
+    -v $(pwd):/opt \
+    -w /opt \
+    --network=phpapp_appnet \
+    phpapp_php \
+    composer require predis/predis
+
+# Restart required to ensure
+# app files shares correctly
+docker-compose restart
 ```
 
 Edit the `application/.env` file to have correct settings for our containers. Adjust the following as necessary:
