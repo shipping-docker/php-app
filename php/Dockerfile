@@ -9,11 +9,12 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update \
-    && apt-get install -y software-properties-common \
+
+    && apt-get install -y curl software-properties-common \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get install -y php-fpm php-cli php-mcrypt php-gd php-mysql \
        php-pgsql php-imap php-memcached php-mbstring php-xml \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
+    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && mkdir /run/php \
     && apt-get remove -y --purge software-properties-common \
     && apt-get clean \
