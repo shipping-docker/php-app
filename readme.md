@@ -17,7 +17,9 @@ git clone git@github.com:shipping-docker/php-app.git
 cd php-app
 
 # Start the app, run containers
-# in the background
+#   in the background
+# This will download and build the images
+#   the first time you run this
 docker-compose up -d
 ```
 
