@@ -10,7 +10,7 @@ ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update \
 
-    && apt-get install -y curl git software-properties-common \
+    && apt-get install -y curl zip unzip git software-properties-common \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get install -y php-fpm php-cli php-mcrypt php-gd php-mysql \
        php-pgsql php-imap php-memcached php-mbstring php-xml \
