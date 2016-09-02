@@ -75,6 +75,13 @@ REDIS_PORT=6379
 > 
 > If you edit the `docker-compose.yml` file, run `docker-compose down; docker-compose up -d` to suck in the new Volume settings.
 
+**NOTE**: If you're not running Docker Mac/Windows (which run Docker in a small virtualized layer), you may need to set permissions on the shared directories that Laravel needs to write to. The following will let Laravel write the storage and bootstrap directories:
+
+```bash
+# From directory php-app
+chmod -R +rw application/bootstrap application/storage
+```
+
 ### 3. (Optionally) Add Auth Scaffolding:
 
 If you'd like, we can add Laravel's Auth scaffolding as well. To do that, we need to run some Artisan commands:
