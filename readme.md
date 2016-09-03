@@ -79,7 +79,7 @@ REDIS_PORT=6379
 
 ```bash
 # From directory php-app
-chmod -R +rw application/bootstrap application/storage
+chmod -R o+rw application/bootstrap application/storage
 ```
 
 ### 3. (Optionally) Add Auth Scaffolding:
