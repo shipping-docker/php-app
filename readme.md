@@ -36,14 +36,14 @@ docker run -it --rm \
     -v $(pwd):/opt \
     -w /opt \
     --network=phpapp_appnet \
-    phpapp_php \
+    shippingdocker/php \
     composer create-project laravel/laravel application
 
 docker run -it --rm \
     -v $(pwd)/application:/opt \
     -w /opt \
     --network=phpapp_appnet \
-    phpapp_php \
+    shippingdocker/php \
     composer require predis/predis
 
 # Restart required to ensure
@@ -92,7 +92,7 @@ docker run -it --rm \
     -v $(pwd)/application:/opt \
     -w /opt \
     --network=phpapp_appnet \
-    phpapp_php \
+    shippingdocker/php \
     php artisan make:auth
 
 # Run migrations for auth scaffolding
@@ -100,7 +100,7 @@ docker run -it --rm \
     -v $(pwd)/application:/opt \
     -w /opt \
     --network=phpapp_appnet \
-    phpapp_php \
+    shippingdocker/php \
     php artisan migrate
 ```
 
