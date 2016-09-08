@@ -6,6 +6,13 @@
 
 This is an example of how you can quickly get up and running with Docker to develop a PHP application. This is a companion to the 🐳 [Shipping Docker](https://shippingdocker.com/) video series.
 
+## Teach me how to use it!
+
+I have a mini-course that uses this example to show you how to get up and running in Docker for development!
+
+Sign up here to get an email with a link to the mini course to see how this works!
+
+<a href="http://shippingdocker.com/#signup" title="see how to use Docker in development"><img src="https://cloud.githubusercontent.com/assets/467411/18333387/1de356d0-7534-11e6-914d-48d69066cc0d.png" alt="Shipping Docker mini-course" width="600" height="200" style="width: 600px; height: 200px;" /></a>
 
 ## How to use
 
