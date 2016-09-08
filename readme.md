@@ -30,8 +30,6 @@ At this point, we've created containers and have them up and running. However, w
 ```bash
 # From directory "php-app"
 # Create a Laravel application
-rm -r application
-
 docker run -it --rm \
     -v $(pwd):/opt \
     -w /opt \
