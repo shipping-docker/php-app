@@ -25,8 +25,13 @@ services:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
       MYSQL_PASSWORD: secret
+    volumes:
+     - data:/var/lib/mysql
     networks:
      - appnet
 networks:
   appnet:
     driver: "bridge"
+volumes:
+  data:
+    driver: "local"
