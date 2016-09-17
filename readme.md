@@ -20,7 +20,7 @@ I have a mini-course that uses this example to show you how to get up and runnin
 
 ```bash
 # Get shipping-docker files
-git clone git@github.com:shipping-docker/php-app.git
+git clone https://github.com/shipping-docker/php-app.git
 cd php-app
 
 # Start the app, run containers
