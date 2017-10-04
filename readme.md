@@ -109,6 +109,21 @@ docker run -it --rm \
     php artisan migrate
 ```
 
+### 4. (Optionally) Use PHPUnit:
+
+First, be sure the newest shippingdocker/php image has been build, you need it to use PHPUnit.
+
+Now just use the command as known:
+
+```bash
+docker run -it --rm \
+    -v $(pwd)/application:/opt \
+    -w /opt \
+    --network=phpapp_appnet \
+    shippingdocker/php \
+    phpunit
+```
+
 Now we can start using our application! Head to `http://localhost/register` to see your Laravel application with auth scaffolding in place.
 
 ![image](https://cloud.githubusercontent.com/assets/467411/18038743/6ac84008-6d61-11e6-8aa6-30a776b59aaa.png)

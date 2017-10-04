@@ -10,7 +10,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN apt-get install -y curl zip unzip git software-properties-common \
+RUN apt-get install -y curl zip unzip git software-properties-common wget \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
     && apt-get install -y php7.1-fpm php7.1-cli php7.1-mcrypt php7.1-gd php7.1-mysql \
@@ -20,6 +20,10 @@ RUN apt-get install -y curl zip unzip git software-properties-common \
     && apt-get remove -y --purge software-properties-common \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN wget https://phar.phpunit.de/phpunit-6.2.phar \
+    && chmod +x phpunit-6.2.phar \
+    && mv phpunit-6.2.phar /usr/local/bin/phpunit
 
 ADD php-fpm.conf /etc/php/7.1/fpm/php-fpm.conf
 ADD www.conf /etc/php/7.1/fpm/pool.d/www.conf
