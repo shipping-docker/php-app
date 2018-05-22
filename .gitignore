@@ -1,2 +1,4 @@
 /application/*
 !/application/.gitkeep
+notes.md
+.DS_Store
