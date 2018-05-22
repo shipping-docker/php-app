@@ -1,19 +1,16 @@
 version: '3'
 services:
-  nginx:
-    image: shippingdocker/nginx:latest
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: shippingdocker/phpapp:latest
     ports:
      - "80:80"
     volumes:
      - ./application:/var/www/html
     networks:
-     - appnet
-  php:
-    image: shippingdocker/php:latest
-    volumes:
-     - ./application:/var/www/html
-    networks:
-     - appnet
+     - appnet  
   redis:
     image: redis:alpine
     networks:

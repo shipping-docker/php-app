@@ -2,11 +2,15 @@ FROM ubuntu:18.04
 
 LABEL maintainer="Chris Fidao"
 
-WORKDIR /var/www/html
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y gnupg tzdata \
+    && echo "UTC" > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update \
     && apt-get install -y curl zip unzip git supervisor sqlite3 \
-    && apt-get install -y nginx php7.2-fpm php7.2-cli \
+       nginx php7.2-fpm php7.2-cli \
        php7.2-pgsql php7.2-sqlite3 php7.2-gd \
        php7.2-curl php7.2-memcached \
        php7.2-imap php7.2-mysql php7.2-mbstring \
