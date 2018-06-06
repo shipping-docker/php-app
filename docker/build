@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-cd $DIR/app
-docker build -t shippingdocker/phpapp:$1 -t shippingdocker/phpapp:latest .
-docker push shippingdocker/phpapp:$1
-docker push shippingdocker/phpapp:latest

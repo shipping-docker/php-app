@@ -4,17 +4,20 @@ services:
     build:
       context: ./docker/app
       dockerfile: Dockerfile
-    image: shippingdocker/phpapp:latest
-    ports:
-     - "80:80"
-    volumes:
-     - ./application:/var/www/html
+    image: shippingdocker/app:latest
     networks:
-     - appnet  
-  redis:
+     - appnet
+    volumes:
+     - .:/var/www/html
+    ports:
+     - ${APP_PORT}:80
+    working_dir: /var/www/html
+  cache:
     image: redis:alpine
     networks:
      - appnet
+    volumes:
+     - cachedata:/data
   db:
     image: mysql:5.7
     environment:
@@ -22,13 +25,28 @@ services:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
       MYSQL_PASSWORD: secret
-    volumes:
-     - data:/var/lib/mysql
+    ports:
+     - ${DB_PORT}:3306
     networks:
      - appnet
+    volumes:
+     - dbdata:/var/lib/mysql
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    image: shippingdocker/node:latest
+    networks:
+     - appnet
+    volumes:
+     - .:/opt
+    working_dir: /opt
+    command: echo hi
 networks:
   appnet:
-    driver: "bridge"
+    driver: bridge
 volumes:
-  data:
-    driver: "local"
+  dbdata:
+    driver: local
+  cachedata:
+    driver: local
